@@ -1,6 +1,6 @@
 # Instagram to X (Twitter) - Modular API
 
-This project handles the process of fetching the latest post from the **a user-specified Instagram account** account, summarizing the caption using an **LLM (AI model)**, and posting the summarized text to **X (Twitter)**. The system is structured into three separate modules for better modularity and maintainability.
+This project handles the process of fetching the latest post from the **a user-specified Instagram account**, summarizing the caption using an **LLM (AI model)**, and posting the summarized text to **X (Twitter)**. The system is structured into three separate modules for better modularity and maintainability.
 
 ### 🔍 Key Modules
 
@@ -32,7 +32,7 @@ Follow these steps to set up the project:
 2. **Navigate to the Project Directory**
 
    ```bash
-   cd sample_set/backend_assignment
+   cd sample_set/Backend_assingment
    ```
 
 3. Create a Virtual Environment
@@ -208,6 +208,5 @@ To automate the process of fetching Instagram posts, summarizing captions, and p
    - This will run the process automatically every 2 hours.
 
 ---
-
-Let me know if you need any modifications! 🚀
+Thank You
 
