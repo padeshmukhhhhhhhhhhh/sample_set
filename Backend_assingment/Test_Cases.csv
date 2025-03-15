@@ -1,0 +1,20 @@
+Module Name,Test Case ID,Description,Input Data,Expected Output
+Instagram Data Fetching,TC_01,Test that an empty username returns an error,""""" (empty string)","{""error"": ""Username cannot be empty""}"
+,,,,
+Instagram Data Fetching,TC_02,Test handling of a non-existent Instagram username,wkrkerje (invalid name),{'error': 'Failed to retrieve dataset ID'}
+,,,,
+Instagram Data Fetching,TC_03,Test when the user exists but has no posts,valid username,"{""error"": ""No recent posts found""}"
+,,,,
+Instagram Data Fetching,TC_04,Test when API call fails,valid username,"{""error"": ""An unexpected error occurred""}"
+,,,,
+Caption Summarization,TC-01,Test successful Instagram caption summarization,valid caption,This is a summarized tweet.
+,,,,
+Caption Summarization,TC-02,Test network failure scenario,valid caption,Network request failed
+,,,,
+Caption Summarization,TC-03,Test API returning non-200 status code,long instagram caption,API request failed with status 500
+,,,,
+Caption Summarization,TC-04,Test when caption is an empty string,"""""",Caption must be a non-empty string
+,,,,
+Tweet Posting,TC-01,Test API response when caption is empty.,"""""",Please provide a caption
+,,,,
+Tweet Posting,TC-02,Test successful tweet posting with mocked Tweepy API,"Hello, Twitter!",Tweet posted successfully
