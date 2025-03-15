@@ -208,5 +208,6 @@ To automate the process of fetching Instagram posts, summarizing captions, and p
    - This will run the process automatically every 2 hours.
 
 ---
+This project uses free API keys,which may have temporary issues. If you encounter any problems with the API keys not working, please contact me or generate your own API key
 Thank You
 
