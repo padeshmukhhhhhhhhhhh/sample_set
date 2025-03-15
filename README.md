@@ -208,6 +208,130 @@ To automate the process of fetching Instagram posts, summarizing captions, and p
    - This will run the process automatically every 2 hours.
 
 ---
+
+## 🚀 Deployment Steps for Automation
+
+### **1️⃣ Install Required Dependencies**
+Ensure your server has the necessary dependencies installed:
+
+```bash
+sudo apt update && sudo apt install -y python3 python3-venv python3-pip nginx
+```
+
+---
+
+### **2️⃣ Clone the Repository**
+```bash
+git clone <repository_url>
+cd sample_set/backend_assignment
+```
+
+---
+
+### **3️⃣ Set Up a Virtual Environment**
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+---
+
+### **4️⃣ Install Project Dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### **5️⃣ Set Up Environment Variables**
+Create a `.env` file in the project directory and add your API keys:
+
+```bash
+API_KEY=your_openrouter_api_key
+API_TOKEN=your_apify_api_key
+ACCESS_TOKEN=your_twitter_access_token
+ACCESS_SECRET=your_twitter_access_secret
+BEARER_TOKEN=your_twitter_bearer_token
+```
+
+---
+
+### **6️⃣ Configure and Start the Automation Scheduler**
+Install the `schedule` library if not installed:
+
+```bash
+pip install schedule
+```
+
+Run the script manually to test:
+
+```bash
+python scheduler.py
+```
+
+If it works fine, stop the script (`CTRL+C`) and set up a system service.
+
+---
+
+### **7️⃣ Set Up a Systemd Service for Automation**
+
+Create a systemd service file:
+
+```bash
+sudo nano /etc/systemd/system/instagram_to_twitter.service
+```
+
+Add the following content:
+
+```ini
+[Unit]
+Description=Instagram to Twitter Automation
+After=network.target
+
+[Service]
+ExecStart=/path/to/venv/bin/python /path/to/project/scheduler.py
+WorkingDirectory=/path/to/project
+Restart=always
+User=your_user
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Replace `/path/to/project` with the actual path of your project directory and `/path/to/venv/` with your virtual environment path.
+
+Save the file and reload systemd:
+
+```bash
+sudo systemctl daemon-reload
+```
+
+Enable and start the service:
+
+```bash
+sudo systemctl enable instagram_to_twitter
+sudo systemctl start instagram_to_twitter
+```
+
+To check service status:
+
+```bash
+sudo systemctl status instagram_to_twitter
+```
+
+To restart the service after code updates:
+
+```bash
+sudo systemctl restart instagram_to_twitter
+```
+
+
+
+
+You have now successfully automated the Instagram-to-Twitter process! 🎉🚀
+
+
+
 This project uses free API keys,which may have temporary issues. If you encounter any problems with the API keys not working, please contact me or generate your own API key
 Thank You
 
